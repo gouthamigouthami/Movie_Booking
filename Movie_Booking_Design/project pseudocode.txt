@@ -1,0 +1,360 @@
+Pseudocode: movie booking 
+Start:
+
+class Movie{
+declare string name,day,time1,time2,time3;
+};
+class  Customer{
+protected:
+declare string name, email, phone_number;
+public:
+function of setname():
+print enter name
+function of setemail():
+print enter email
+chack if (email has @ or not)
+print valid
+else 
+invalid repeat set email 
+function of setphone_number():
+print enter phone number 
+check for validation if(phonenumber is greater than 10)then 
+print valid 
+else 
+invalid repeat process
+getname()
+getemail()
+getphone_number()
+};
+class Member : public Customer {
+protected:
+declaration of  string icno, acc_num;
+char password[50];
+int valid_month, valid_year;
+get the current year
+void MemberInitialize(string name,string icno,string email, string phone_number, string acc_num, string password, int valid_month, int valid_year)
+{
+read  all above data
+}
+void setIC(){
+print enter ic number without -
+if(ic is greater than 10)
+print valid
+create file membership and read all data i.e name,icnum,eamil,phone_number,acc num,month year
+if(enterded ic number equal to ic number which is read from  membership.txt)
+then icfound 
+else
+icnot found  
+else
+print valid IC number
+repeat setIc
+
+}
+ void setAccNum(){
+assignn random Account number
+}
+ void setMonth(){
+assigne current month using ctime headet take pointer assign time to it
+}
+void setPassword(){
+print create password
+print reenter your passowrd
+if(created password is equal to reenter password)
+print succesfully pasword created
+else
+print create password
+}
+void setYear(){
+set year using ctime header file
+}
+int getYear(){
+get year
+}
+ void getPassword(){
+return  password}
+string getAccNum(){retrun account number}
+string getIC(){return Ic}
+int getMonth(){return month;}
+string getPassword(){retrun password}
+};
+//object creation for member
+Member *MemberProg = new Member;
+//movies maxinum count 
+using MOVIE = Movie[MAXMOVIES];
+// for dispaly title page
+void title();
+//function to compares if the two movies having same names  
+bool CompareNames(Movie movie1, Movie movie2);
+//read movies feom movies file
+int ReadFile(MOVIE& movies, int& movieCount);
+// dispaly available movies from file
+void showmovielist(MOVIE& movies, const int movieCount);
+//checking whether time is correct or  not 
+void time_checking(int time[], int i);
+//assign ticket number 
+void showTicket();
+//paymnet function
+void payment(float pay);
+//booing a movie
+void movie_booking();
+// function for cancelling movie
+void ticket_cancel();
+//member registration
+void member_reg();
+//funtion to extend years 
+void member_renew();
+//user membership
+void membership();
+//function for addition of movies
+void add_movie();
+//function for deletion of movies 
+void delete_movie();
+//function to add movies
+void update_movie();
+//admin function
+void management();
+// user/member login checking 
+string member_login();
+
+in the  main function{
+main menu(){
+
+call title page to set title page
+(A)  MOVIE BOOKING
+(B) TICKET CANCELLATIONG  
+(C)    MEMBERSHIP 
+(D)     EMPLOYEES    
+(E)     QUIT 
+select from above option 
+if it is A then call movie booking function 
+else if B then call membership function
+else if C call membership Function
+else if D call admin/employee function
+else quit 
+print do want want mamin menu enter b
+}
+void title {
+set title page by running two loops 
+}
+//checking two movies same or not 
+bool CompareNames(Movie movie1, Movie movie2)
+{ true 
+if(movie 1 name equal to movie 2 name )
+false 
+}
+// reading movies list from file  
+int ReadFile(MOVIE& movies, int& movieCount)
+{
+read from file movies name and other details lo=ike timings and day available
+count increment
+}
+// show movie list from file  
+void showmovielist(MOVIE& movies, const int movieCount)
+{
+print s.no avaialble movies ,day,timings
+write  movies availble to moviess.txt using streams 
+}
+//check for valid time 
+void time_checking(int time[], int i)
+{
+print enter timings
+while(time is lessthan 0 and time greater than 2400)
+print enter valid time 
+read from user time 
+}
+print successful  
+}
+void showTicket(){
+assign random ticket number 
+print this is your ticket number
+print thank you  
+}
+//payemt 
+void payment(float pay)
+{
+print (A) CASH  
+      (B) DEBIT CARD 
+       (C) CREDIT CARD 
+print enter your payment method
+if A 
+print You have selected to pay on cash
+print The amount you need to pay is : pay
+else if B 
+print You have selected to pay on  Debit card
+print enter cvv number last 3 digits 
+print The amount you need to pay is : pay
+else 
+else if B 
+print You have selected to pay on  Credit card
+print enter cvv number last 3 digits 
+print The amount you need to pay is : pay
+print predd b  go to main menu 
+read from user 
+}
+void member_reg(){
+setName();
+setPhonenumber();
+setIC();
+setEmail();
+setMonth();
+setYear();
+print  do you want  change data or process 
+if yes 
+repeat above set statement 
+else 
+set account number and password 
+print you are member now 
+}
+void member_renew(){
+call member login to login 
+print how many years you e=want extend your account
+print 1year 
+print 2 year 
+print 3 year 
+read from user 
+if 1 year 
+paymnet(float 100.00);
+else if(2 years)
+payment(float 200.00)
+else 
+payment(float 300.00)
+open file membership.txt file update extended year
+print you have succefully extend  user selected year
+}//membership function
+void membership()
+{
+print A new User 
+Print B membership
+read input from user 
+if A
+call member_reg();
+else
+call member_renew();
+}
+//function for movie booking 
+void movie_booking()
+{
+print A member login 
+print B Guest login
+read input from user 
+if A 
+call member login 
+else
+call set name,set email,set phonen_number
+call showlist
+print please selct movie from available movie
+read from user 
+print which show you want select(show 1 ,show 2 and show 3) 
+read from user
+if user input is greater than 3 
+print wrong selection please select right one repeat above two steps 
+else
+print you have selcted (user)timings  
+print selct number of seats 
+read from user 
+if seat  number is greater than 10 
+print wrong choice selct between  1 and 10
+repeat above two steps
+else
+do{
+print enter row u want [A,B,C,D]
+read from user input 
+if user input is not between A  and E
+print 
+plaese select between A and E 
+print enter coloumn number 
+read from user 
+if user input is greater than 5
+print please select from between 1 to 5
+for (int varaible =0; varaiabel <user input for row and coloun ;variable++)
+if (seat_row[variable] == seat_row[userinout for row] && seat_column[varible] == seat_column[userinput for coloum]) {
+then print seat is not vailable please selcet another input 
+read from user
+repeat selection of seats 
+while seat is less than no of selats
+}
+print here are two types of seats available:  
+(A) DELUXE (RM 200)
+(B) NORMAL (RM 100)
+print select from above 
+read from user input
+if user input is Deluxe then
+payment(200.00)
+else
+payment(100.00)
+open a booikng.text file and store the booing recording 
+print do you wish to continue then press p and b back and r reselect
+if user input p
+receipt 
+elseif user input r
+goto seat selection
+else
+back to main menu
+}
+void management()
+{
+print enter name and password 
+if correct then
+print please select following options 
+A add movie
+B delete movie
+C change timings
+print senter your response
+else
+if login attempt is 3
+login failed  
+read input response from user 
+if input os A 
+call addmovies 
+else if input is B
+call delete movies
+else
+call change showtimings 
+}
+void addmovies()
+{
+enter movies name 
+input from user input
+add timings for 3 showtimings by calling timechecking 
+open movie file and uodate the movies 
+}
+void delete_movie(){
+read movies.txt file
+print enter number of movie you e=wamt to delete feom available movies
+take user input
+copy the data into temp.txt then delete movie
+print the deletion of movie is done
+close two files i.e movies.tex and temp.txt
+
+}
+void update_movie(){
+print select movies you want update timings from availble movies
+read from user input
+open movies .text file read movie detials 
+add first show timing and check timecheck condition
+add second show timing and check timecheck condition
+add third show timing and check timecheck condition
+update movie.text file by opening and 
+update in temp.txt 
+}
+void ticket_cancel(){
+print enter your ticket number
+read data from user
+open booking.txt file 
+check whether entered user tickekt number present in booking.txt 
+if present 
+then show all detilas of his booking sytem by reading from a file
+else
+store all details from temp.tex
+if yes 
+cancellation done 
+else
+not done main menu 
+
+
+
+
+ 
+
+
+
